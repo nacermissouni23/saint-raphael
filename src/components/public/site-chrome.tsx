@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const WHATSAPP_NUMBER = "+213770538730";
 
 export function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isAdmin = pathname.startsWith("/admin");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   if (isAdmin) {
     return <>{children}</>;
@@ -30,22 +32,61 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
             <Link href="/contact" className="hover:text-[var(--color-primary)]">
               Contact
             </Link>
-          </nav>
-          <div className="flex items-center gap-3">
             <Link
               href="/admin"
               className="rounded-full border border-[var(--color-primary)] px-4 py-1.5 text-sm font-semibold text-[var(--color-primary)]"
             >
               Admin
             </Link>
+          </nav>
+          <div className="flex items-center gap-3">
             <Link
               href="/contact"
-              className="rounded-full bg-[var(--color-primary)] px-4 py-2 text-sm font-semibold text-white"
+              className="hidden rounded-full bg-[var(--color-primary)] px-4 py-2 text-sm font-semibold text-white sm:inline-block"
             >
               Contactez-nous
             </Link>
+            <button
+              type="button"
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="flex items-center justify-center md:hidden"
+              aria-label="Menu"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6">
+                <path d={menuOpen ? "M18.3 5.7a1 1 0 00-1.4 0L12 10.6 7.1 5.7a1 1 0 10-1.4 1.4L10.6 12l-4.9 4.9a1 1 0 101.4 1.4L12 13.4l4.9 4.9a1 1 0 001.4-1.4L13.4 12l4.9-4.9a1 1 0 000-1.4z" : "M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"} />
+              </svg>
+            </button>
           </div>
         </div>
+        {menuOpen && (
+          <div className="border-t border-[var(--color-border)] bg-white px-6 pb-5 pt-3 md:hidden">
+            <nav className="grid gap-3 text-sm">
+              <Link href="/listings" onClick={() => setMenuOpen(false)} className="hover:text-[var(--color-primary)]">
+                Biens
+              </Link>
+              <Link href="/a-propos" onClick={() => setMenuOpen(false)} className="hover:text-[var(--color-primary)]">
+                A propos
+              </Link>
+              <Link href="/contact" onClick={() => setMenuOpen(false)} className="hover:text-[var(--color-primary)]">
+                Contact
+              </Link>
+              <Link
+                href="/admin"
+                onClick={() => setMenuOpen(false)}
+                className="mt-2 rounded-full border border-[var(--color-primary)] px-4 py-2 text-center text-sm font-semibold text-[var(--color-primary)]"
+              >
+                Admin
+              </Link>
+              <Link
+                href="/contact"
+                onClick={() => setMenuOpen(false)}
+                className="rounded-full bg-[var(--color-primary)] px-4 py-2 text-center text-sm font-semibold text-white"
+              >
+                Contactez-nous
+              </Link>
+            </nav>
+          </div>
+        )}
       </header>
       <div className="flex-1">{children}</div>
       <a
