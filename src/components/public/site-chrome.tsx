@@ -27,22 +27,24 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
             <Link href="/a-propos" className="hover:text-[var(--color-primary)]">
               A propos
             </Link>
-          <Link href="/contact" className="hover:text-[var(--color-primary)]">
-            Contact
-          </Link>
-          <Link
-            href="/admin"
-            className="rounded-full border border-[var(--color-primary)] px-4 py-1.5 text-sm font-semibold text-[var(--color-primary)]"
-          >
-            Admin
-          </Link>
-        </nav>
-        <Link
-          href="/contact"
-          className="rounded-full bg-[var(--color-primary)] px-4 py-2 text-sm font-semibold text-white"
-        >
-          Contactez-nous
-        </Link>
+            <Link href="/contact" className="hover:text-[var(--color-primary)]">
+              Contact
+            </Link>
+          </nav>
+          <div className="flex items-center gap-3">
+            <Link
+              href="/admin"
+              className="rounded-full border border-[var(--color-primary)] px-4 py-1.5 text-sm font-semibold text-[var(--color-primary)]"
+            >
+              Admin
+            </Link>
+            <Link
+              href="/contact"
+              className="rounded-full bg-[var(--color-primary)] px-4 py-2 text-sm font-semibold text-white"
+            >
+              Contactez-nous
+            </Link>
+          </div>
         </div>
       </header>
       <div className="flex-1">{children}</div>
