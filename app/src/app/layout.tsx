@@ -17,9 +17,9 @@ const bodyFont = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Diar Dzair | Agence Immobiliere",
+  title: "Agence Immobiliere Saint Raphael | El Biar",
   description:
-    "Trouvez votre chez-vous en Algerie. Diar Dzair vous accompagne pour acheter, louer et investir partout en Algerie.",
+    "Trouvez votre chez-vous en Algerie. Saint Raphael vous accompagne pour acheter, louer et investir a El Biar et partout en Algerie.",
 };
 
 export default function RootLayout({

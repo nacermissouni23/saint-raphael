@@ -13,7 +13,7 @@ export default async function Home() {
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
             <div>
               <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">
-                Diar Dzair
+                Saint Raphael
               </p>
               <h1 className="text-5xl leading-[1.05] text-[var(--color-text-primary)] sm:text-6xl lg:text-7xl">
                 Trouvez votre chez-vous en Algerie

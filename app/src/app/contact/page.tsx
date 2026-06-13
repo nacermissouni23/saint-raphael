@@ -40,9 +40,9 @@ export default async function ContactPage() {
             <h3 className="text-xl">Localisation</h3>
             <div className="mt-3">
               <OsmMap
-                latitude={36.7538}
-                longitude={3.0588}
-                label="Diar Dzair Alger Centre"
+                latitude={36.755}
+                longitude={3.03}
+                label="Agence Immobiliere Saint Raphael - El Biar"
                 heightClassName="h-72"
               />
             </div>
