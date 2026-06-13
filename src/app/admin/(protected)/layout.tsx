@@ -1,20 +1,10 @@
 import Link from "next/link";
-import { redirect } from "next/navigation";
-
-import { AdminLogoutButton } from "@/components/admin/admin-logout-button";
-import { getCurrentAdminUser } from "@/lib/auth/session";
 
 export default async function AdminProtectedLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const adminUser = await getCurrentAdminUser();
-
-  if (!adminUser) {
-    redirect("/admin/login");
-  }
-
   return (
     <div className="grid min-h-screen grid-cols-1 lg:grid-cols-[240px_1fr]">
       <aside className="border-r border-[var(--color-border)] bg-[var(--color-surface)] p-5">
@@ -42,8 +32,13 @@ export default async function AdminProtectedLayout({
 
       <div className="p-6 lg:p-8">
         <header className="mb-8 flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white px-4 py-3">
-          <p className="text-sm text-[var(--color-text-muted)]">Connecte: {adminUser.email ?? adminUser.uid}</p>
-          <AdminLogoutButton />
+          <p className="text-sm text-[var(--color-text-muted)]">Mode Demo — Acces libre</p>
+          <Link
+            href="/"
+            className="rounded-full bg-[var(--color-primary)] px-4 py-2 text-sm font-semibold text-white"
+          >
+            Retour au site
+          </Link>
         </header>
         {children}
       </div>
